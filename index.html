@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="pl" ng-app="szuszApp">
+<html lang="pl" ng-app="szuszApp-admin">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zakład Metod Komputerowych Fizyki i Elektroniki</title>
+    <base href="/">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+      <link href="css/admin.css" rel="stylesheet">
+      <link href='css/textAngular.css' rel='stylesheet'>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,10 +22,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body role="document" id="news">
+  <body role="document">
+
 
   <!-- HEADER  -->
-    <nav class="navbar navbar-default navbar-static-top">
+  <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
           <div class="row">
               <div class="navbar-header">
@@ -31,24 +36,23 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/#/news">Zakład Metod Komputerowych Fizyki i Elektroniki</a>
+                  <a class="navbar-brand" href="/#/admin">Panel administratora</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="/#/news">Aktualności</a></li>
-                      <li><a href="/#/members">Pracownicy </a></li>
-                      <li><a href="/#/about">O nas</a></li>
+                      <li><a href="/#/news">Newsy</a></li>
+                      <li><a href="/#/users">Użytkownicy </a></li>
+                      <li><a href="/#/profile">Moja strona</a></li>
                   </ul>
               </div><!--/.nav-collapse -->
           </div>
       </div>
-    </nav>
+  </nav>
 
 
-  <!-- MAIN  -->
-    <div class="container">
-        <div ng-view></div>
-    </div>
+  <div class="container">
+      <div ng-view></div>
+  </div>
 
 
   <!-- FOOTER  -->
@@ -59,16 +63,20 @@
     </div>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.2.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap-tabcollapse.js"></script>
-    <script src="js/angular.js"></script>
-    <script src="js/angular-route.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/vendor/jquery-1.11.2.js"></script>
+    <script src="js/vendor/bootstrap.js"></script>
+    <script src="js/vendor/bootstrap-tabcollapse.js"></script>
+    <script src="js/vendor/angular.js"></script>
+    <script src="js/vendor/angular-route.js"></script>
+    <script src="js/vendor/angular-resource.js"></script>
+    <script src='js/vendor/textAngular-rangy.min.js'></script>
+    <script src='js/vendor/textAngular-sanitize.min.js'></script>
+    <script src='js/vendor/textAngular.min.js'></script>
+    <script src='js/vendor/ui-bootstrap-tpls-0.13.0.js'></script>
 
-    <script src="js/script.js"></script>
+    <script src="js/app-admin.js"></script>
+    <script src="js/controllers.js"></script>
+
 
   </body>
 </html>
