@@ -53,7 +53,7 @@
 
     }]); //NewsController
 
-    /*app.factory('users', ['$http', function($http){
+    app.factory('usersFactory', ['$http', function($http){
 
         var _getUsers = function (callback) {
 
@@ -69,18 +69,15 @@
         return {
             getUsers: _getUsers
         };
-    }]);*/
+    }]);
 
-    app.factory('users', function($resource) {
-        return $resource('data/users.json');
-    });
 
-    app.controller('UsersController', ['$scope','$http', function ($scope, $http, users) {
+    app.controller('UsersController', ['$scope','$http','usersFactory', function ($scope, $http, usersFactory) {
         $scope.users = [];
 
-       // $scope.users = users.query();
- //       });
-
+        usersFactory.getUsers(function (usersFactory) {
+            $scope.users = usersFactory;
+        });
 
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
@@ -98,8 +95,8 @@
 
         function postUsers(){
             $http.post('data/users.json', $scope.users)
-                .success(function(data, status, headers, config) {
-                    console.log();
+                .success(function(data) {
+                    console.log(data);
                 })
                 .error(function(data, status, headers, config) {
                     alert( "failure message: " + JSON.stringify({data: data}));
@@ -178,14 +175,17 @@
             return Math.ceil($scope.users.length / $scope.usersPerPage);
         };
 
-        $scope.users.$promise.then(function () {
-            $scope.totalItems = $scope.users.length;
-            $scope.$watch('currentPage + itemsPerPage', function() {
-                var begin = (($scope.currentPage - 1) * $scope.usersPerPage),
-                    end = begin + $scope.usersPerPage;
+        $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+        };
 
-                $scope.chosenUsers = $scope.users.slice(begin, end);
-            });
+        $scope.totalItems = $scope.users.length;
+        $scope.$watch('currentPage + usersPerPage', function() {
+
+            var begin = (($scope.currentPage - 1) * $scope.usersPerPage);
+            var end = begin + $scope.usersPerPage;
+
+            $scope.chosenUsers = $scope.users.slice(begin, end);
         });
 
 

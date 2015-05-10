@@ -14,7 +14,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="user in users | orderBy:sort_field:reverseSort">
+                    <tr ng-repeat="user in chosenUsers | orderBy:sort_field:reverseSort">
                         <td class="id">
                             {{ user.id }}
                         <td>
@@ -89,7 +89,7 @@
                             </td>
                         </tr>
                     </tfoot>
-
                 </table>
     </div>
 </div>
+<pre>{{totalItems}} {{chosenUsers}}</pre>
