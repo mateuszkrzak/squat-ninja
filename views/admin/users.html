@@ -14,7 +14,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="user in chosenUsers | orderBy:sort_field:reverseSort">
+                    <tr ng-repeat="user in users | orderBy:sort_field:reverseSort | filter : paginate">
                         <td class="id">
                             {{ user.id }}
                         <td>
@@ -81,7 +81,7 @@
                         <tr>
                             <td colspan="6">
                                 <div class="text-center">
-                                    <pagination boundary-links="true" total-items="totalItems" users-per-page="usersPerPage"  ng-model="currentPage" class="pagination-sm" ng-change="pageChanged()"
+                                    <pagination boundary-links="true" total-items="totalItems" items-per-page="itemsPerPage"  ng-model="currentPage" class="pagination-sm" ng-change="pageChanged()"
                                                 previous-text="&lsaquo;" next-text="&rsaquo;" first-text="Pierwszy" last-text="Ostatni">
 
                                     </pagination>
@@ -92,4 +92,3 @@
                 </table>
     </div>
 </div>
-<pre>{{totalItems}} {{chosenUsers}}</pre>

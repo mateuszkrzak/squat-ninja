@@ -26,7 +26,7 @@
                 label: 'Moja strona'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/news'
             })
         ;
 

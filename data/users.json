@@ -14,5 +14,21 @@
   {"id":13,"firstname":"Przemysław","degree":"mgr","lastname":"Poprawka","role":"user","email":"luk@mail.com"},
   {"id":14,"firstname":"Rafał","degree":"mgr","lastname":"Rewolwerowiec","role":"user","email":"polsa@mail.com"},
   {"id":15,"firstname":"Paweł","degree":"mgr","lastname":"Pakulski","role":"user","email":"wertykalny@mail.com"},
-  {"id":16,"firstname":"Grzegorz","degree":"mgr","lastname":"Fabuła","role":"user","email":"fabula@mail.com"}
+  {"id":16,"firstname":"Grzegorz","degree":"mgr","lastname":"Fabuła","role":"user","email":"fabula@mail.com"},
+  {"id":21,"firstname":"Leon","degree":"dr hab","lastname":"Kowal","role":"admin","email":"leon@mail.com"},
+  {"id":22,"firstname":"Anna","degree":"dr","lastname":"Burak","role":"user","email":"burak@mail.com"},
+  {"id":23,"firstname":"Adam","degree":"mgr","lastname":"Kania","role":"user","email":"akania@mail.com"},
+  {"id":24,"firstname":"Lola","degree":"dr","lastname":"Kurak","role":"user","email":"burakakaka12@mail.com"},
+  {"id":25,"firstname":"Kazimierz","degree":"dr","lastname":"Banialuk","role":"user","email":"banialuk@mail.com"},
+  {"id":26,"firstname":"Elżbieta","degree":"mgr inż.","lastname":"Buracka","role":"user","email":"mzlakeormnqwa@mail.com"},
+  {"id":27,"firstname":"Bohdan","degree":"inż.","lastname":"Kanalia","role":"user","email":"laknaia@mail.com"},
+  {"id":28,"firstname":"Stan","degree":"dr hab","lastname":"Polio","role":"user","email":"spolio@mail.com"},
+  {"id":29,"firstname":"Bob","degree":"mgr","lastname":"French","role":"admin","email":"bob@mail.com"},
+  {"id":30,"firstname":"Stefan","degree":"mgr","lastname":"Sokół","role":"user","email":"sokol@mail.com"},
+  {"id":31,"firstname":"Adam","degree":"dr","lastname":"Lajca","role":"user","email":"akania@mail.com"},
+  {"id":32,"firstname":"Leszek","degree":"mgr inż.","lastname":"Frak","role":"user","email":"makal@mail.com"},
+  {"id":33,"firstname":"Przemysław","degree":"mgr","lastname":"Poprawka","role":"user","email":"luk@mail.com"},
+  {"id":34,"firstname":"Rafał","degree":"mgr","lastname":"Rewolwerowiec","role":"user","email":"polsa@mail.com"},
+  {"id":35,"firstname":"Paweł","degree":"mgr","lastname":"Pakulski","role":"user","email":"wertykalny@mail.com"},
+  {"id":36,"firstname":"Grzegorz","degree":"mgr","lastname":"Fabuła","role":"user","email":"fabula@mail.com"}
 ]
