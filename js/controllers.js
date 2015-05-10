@@ -14,6 +14,20 @@
             });
         $scope.sort_field = 'news_id';
 
+        //paginacja
+        $scope.itemsPerPage = 15;
+        $scope.currentPage = 1;
+
+        $scope.paginate = function(value) {
+            $scope.totalItems = $scope.news.length;
+
+            var begin, end, index;
+            begin = ($scope.currentPage - 1) * $scope.itemsPerPage;
+            end = begin + $scope.itemsPerPage;
+            index = $scope.news.indexOf(value);
+            return (begin <= index && index < end);
+        };
+
 
         $scope.content ='Kliknij aby zacząć pisać swoją wiadomość...';
 
@@ -56,7 +70,7 @@
 
 
 
-    app.controller('UsersController', ['$scope','$http','$resource', function ($scope, $http, $resource) {
+    app.controller('UsersController', ['$scope','$http', function ($scope, $http) {
         $scope.users = [];
 
         $http.get('data/users.json')

@@ -44,7 +44,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="message in news | orderBy:sort_field:reverseSort">
+            <tr ng-repeat="message in news | orderBy:sort_field:reverseSort | filter : paginate">
                 <td class="id">
                     {{message.news_id }}
                 <td>
@@ -69,6 +69,18 @@
 
 
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="6">
+                    <div class="text-center">
+                        <pagination boundary-links="true" total-items="totalItems" items-per-page="itemsPerPage"  ng-model="currentPage" class="pagination-sm" ng-change="pageChanged()"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="Pierwszy" last-text="Ostatni">
+
+                        </pagination>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
         </table>
 
     </div>
