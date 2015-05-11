@@ -11,6 +11,11 @@ body {
     font-weight: 700;
 }
 
+.panel-heading .title {
+    height: 28px;
+    line-height: 28px;
+}
+
 .users input{
     width: 100%;
 }
@@ -30,6 +35,8 @@ body {
 .news .buttons{
     white-space: nowrap;
 }
+
+
 
 .footer {
     height: 60px;

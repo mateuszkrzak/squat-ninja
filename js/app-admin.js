@@ -7,10 +7,6 @@
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
         $routeProvider
-            .when('/', {
-                templateUrl: 'views/admin/dash.html',
-                label: 'Zaloguj'
-            })
             .when('/news', {
                 controller: 'NewsController',
                 templateUrl: 'views/admin/news.html',
