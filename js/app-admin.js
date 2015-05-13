@@ -1,6 +1,6 @@
 (function(){
 
-    var app = angular.module('szuszApp-admin', ['ngRoute', 'ngResource', 'szuszApp-adminControllers','textAngular','ui.bootstrap']);
+    var app = angular.module('szuszApp-admin', ['ngRoute', 'ngResource', 'szuszApp-admin-usersController', 'szuszApp-admin-newsController','textAngular','ui.bootstrap']);
 
 
 

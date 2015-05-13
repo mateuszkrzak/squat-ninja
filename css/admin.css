@@ -20,6 +20,8 @@ body {
     width: 100%;
 }
 
+
+
 .users .buttons{
     white-space: nowrap;
 }
@@ -42,6 +44,10 @@ body {
 
 .news-edit .news-info {
     padding: 10px 0;
+}
+
+.modal-backdrop {
+height: 100%;
 }
 
 .footer {

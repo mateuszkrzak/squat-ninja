@@ -18,7 +18,8 @@
                     <tr>
                         <th><a href="" ng-click="sort_field='id'; reverseSort = !reverseSort">ID</a></th>
                         <th><a href="" ng-click="sort_field='degree'; reverseSort = !reverseSort">Stopień</a></th>
-                        <th><a href="" ng-click="sort_field='lastname'; reverseSort = !reverseSort">Imię i nazwisko</a></th>
+                        <th><a href="" ng-click="sort_field='firstname'; reverseSort = !reverseSort">Imię</a></th>
+                        <th><a href="" ng-click="sort_field='lastname'; reverseSort = !reverseSort">Nazwisko</a></th>
                         <th><a href="" ng-click="sort_field='email'; reverseSort = !reverseSort">e-mail</a></th>
                         <th><a href="" ng-click="sort_field='role'; reverseSort = !reverseSort">Rola</a></th>
                         <th>Akcja</th>
@@ -34,7 +35,11 @@
                             <div ng-show="editingData[user.id]"><input type="text" ng-model="user.degree" /></div>
                         </td>
                         <td>
-                            <div ng-hide="editingData[user.id]">{{user.firstname +" "+ user.lastname }}</div>
+                            <div ng-hide="editingData[user.id]">{{user.firstname}}</div>
+                            <div ng-show="editingData[user.id]"><input type="text" ng-model="user.firstname" /></div>
+                        </td>
+                        <td>
+                            <div ng-hide="editingData[user.id]">{{user.lastname }}</div>
                             <div ng-show="editingData[user.id]"><input type="text" ng-model="user.lastname" /></div>
                         </td>
                         <td>
@@ -62,11 +67,15 @@
                     <tr>
                         <td>
                             <div ng-show="showinputs"><input type="number" ng-model="id" /></div>
-                        <td>
-                            <div ng-show="showinputs"><input type="text" ng-model="firstname" /></div>
                         </td>
                         <td>
-                            <div ng-show="showinputs"><input type="text" ng-model="lastname" /></div>
+                            <div ng-show="showinputs"><input type="text" ng-model="degree" /></div>
+                        </td>
+                        <td>
+                            <div class="name" ng-show="showinputs"><input type="text" ng-model="firstname" /></div>
+                        </td>
+                        <td>
+                            <div class="name" ng-show="showinputs"><input type="text" ng-model="lastname" /></div>
                         </td>
                         <td>
                             <div ng-show="showinputs"><input type="text" ng-model="email" /></div>
@@ -91,7 +100,7 @@
 
                     <tfoot>
                         <tr>
-                            <td colspan="6">
+                            <td colspan="7">
                                 <div class="text-center">
                                     <pagination 
                                         boundary-links="true" 
