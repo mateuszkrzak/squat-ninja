@@ -106,12 +106,9 @@
         };
 
         function getMax(tab, field) {//zwraca max z tab pola field
-            var max;
-            for (var i=0 ; i<tab.length ; i++) {
-                if (!max || parseInt(tab[i][field]) > parseInt(max[field]))
-                    max = tab[i];
-            }
-            return max[field];
+            return Math.max.apply(null, tab.map(function (obj) {
+                return obj[field];
+            }));
         }
 
     }]); //NewsController
