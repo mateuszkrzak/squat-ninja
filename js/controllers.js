@@ -34,12 +34,18 @@
 
         $scope.animationsEnabled = true;
 
-        $scope.editNews = function (size, message) {
+        $scope.editNews = function (size, message, $index) {
 
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/admin/news-edit-modal.html',
                 controller: function($scope, $modalInstance){
+                    $scope.news_id= message.news_id;
+                    $scope.content = message.content;
+                    $scope.firstname = message.firstname;
+                    $scope.lastname = message.lastname;
+                    $scope.author_id = message.author_id;
+                    $scope.news_date = message.news_date;
 
                     $scope.save = function () {
                         message = $scope.content;
@@ -49,22 +55,20 @@
                     $scope.cancel = function () {
                         $modalInstance.dismiss('cancel');
                     };
-
-                    $scope.news_id= message.news_id;
-                    $scope.content = message.content;
-                    $scope.firstname = message.firstname;
-                    $scope.lastname = message.lastname;
-                    $scope.author_id = message.author_id;
-                    $scope.news_date = message.news_date;
                 },
-                size: size
+
+                size: size,
+                resolve: {
+                    content: function () {
+                        return $scope.content;
+                    }
+                }
 
             });
 
             modalInstance.result.then(function (message) {
-                console.log(message);
+                $scope.news[$index].content = message;
             }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
             });
         };
 
@@ -106,12 +110,9 @@
         };
 
         function getMax(tab, field) {//zwraca max z tab pola field
-            var max;
-            for (var i=0 ; i<tab.length ; i++) {
-                if (!max || parseInt(tab[i][field]) > parseInt(max[field]))
-                    max = tab[i];
-            }
-            return max[field];
+            return Math.max.apply(null, tab.map(function (obj) {
+                	                return obj[field];
+                	            }));
         }
 
     }]); //NewsController
@@ -165,12 +166,9 @@
         }
 
         function getMax(tab, field) {//zwraca max z tab pola field
-            var max;
-            for (var i=0 ; i<tab.length ; i++) {
-                if (!max || parseInt(tab[i][field]) > parseInt(max[field]))
-                    max = tab[i];
-            }
-            return max[field];
+            return Math.max.apply(null, tab.map(function (obj) {
+                return obj[field];
+            }));
         }
 
         $scope.showAddRow = function(){
