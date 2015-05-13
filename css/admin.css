@@ -36,7 +36,13 @@ body {
     white-space: nowrap;
 }
 
+.addnews {
+    padding-top: 5px;
+}
 
+.news-edit .news-info {
+    padding: 10px 0;
+}
 
 .footer {
     height: 60px;

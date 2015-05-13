@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="col-xs-12 ">
     <div class="panel panel-primary">
         <div class="panel-heading hover-link" data-toggle="collapse" data-parent="false" data-target="#collapseTableOne">
             <h4 class="panel-title">
@@ -9,8 +9,8 @@
             <div class="panel-body">
                 <text-angular ng-model="content"></text-angular>
 
-                <div class="">
-                    <button class="btn btn-primary pull-right">Opublikuj</button>
+                <div class="addnews">
+                    <button class="btn btn-primary pull-right" ng-click="addNews()">Opublikuj</button>
                 </div>
             </div>
         </div>
@@ -60,13 +60,12 @@
                 </td>
 
                 <td>
-                    {{message.news_date }}
+                    {{message.news_date | date: 'dd/MM/yyyy'}}
                 </td>
 
                 <td class="buttons">
-                    <button ng-hide="editingData[message.id]" ng-click="modify(message)" class="btn btn-xs glyphicon glyphicon-pencil"/>
-                    <button ng-show="editingData[message.id]" ng-click="update(message)" class="btn btn-xs glyphicon glyphicon-ok"/>
-                    <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="removeRow(message.id)"/>
+                    <button ng-click="editNews('lg',message)" class="btn btn-xs glyphicon glyphicon-pencil"/>
+                    <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="removeNews(message.news_id)"/>
                 </td>
             </tr>
 
