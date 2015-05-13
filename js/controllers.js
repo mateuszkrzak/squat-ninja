@@ -63,7 +63,6 @@
 
             modalInstance.result.then(function (message) {
                 console.log(message);
-                $log.info('Modal  at: ' + new Date());
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
