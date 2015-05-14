@@ -60,7 +60,7 @@
                         <td class="buttons">
                             <button ng-hide="editingData[user.id]" ng-click="modify(user)" class="btn btn-xs glyphicon glyphicon-pencil"/>
                             <button ng-show="editingData[user.id]" ng-click="update(user)" class="btn btn-xs glyphicon glyphicon-ok"/>
-                            <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="removeRow(user.id)"/>
+                            <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="removeRow($index)"/>
                         </td>
                     </tr>
 

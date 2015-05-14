@@ -72,19 +72,8 @@
             //postUsers();
         };
 
-        $scope.removeRow = function(user_id){
-            var index = -1;
-            var comArr = eval( $scope.users );
-            for( var i = 0; i < comArr.length; i++ ) {
-                if( comArr[i].id === user_id ) {
-                    index = i;
-                    break;
-                }
-            }
-            if( index === -1 ) {
-                alert( "Błąd w funkcji removeRow" );
-            }
-            $scope.users.splice( index, 1 );
+        $scope.removeRow = function($index){
+            $scope.users.splice($index, 1 );
         };
 
         $scope.editingData = [];

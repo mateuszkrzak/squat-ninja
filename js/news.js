@@ -95,19 +95,8 @@
             //postUsers();
         };
 
-        $scope.removeNews = function(news_id){
-            var index = -1;
-            var comArr = eval( $scope.news );
-            for( var i = 0; i < comArr.length; i++ ) {
-                if( comArr[i].news_id === news_id ) {
-                    index = i;
-                    break;
-                }
-            }
-            if( index === -1 ) {
-                alert( "Błąd w funkcji removeRow" );
-            }
-            $scope.news.splice( index, 1 );
+        $scope.removeNews = function($index){
+            $scope.news.splice($index, 1 );
         };
 
         function getMax(tab, field) {//zwraca max z tab pola field
