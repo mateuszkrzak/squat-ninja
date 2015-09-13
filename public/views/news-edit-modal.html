@@ -1,0 +1,19 @@
+<div class="news-edit">
+    <div class="modal-header">
+        <h3 class="modal-title">Edycja newsa o id {{id}}</h3>
+    </div>
+    <div class="modal-body">
+        <text-angular ng-model="content"></text-angular>
+        <div class="news-info">
+            <p class="pull-right">
+                {{'Napisał ' + author + ' o ' + (date | date: 'H:mm, dd/MM/yyyy')}}
+            </p>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="save()">Zapisz zmiany</button>
+            <button class="btn" ng-click="cancel()">Anuluj</button>
+        </div>
+    </div>
+</div>

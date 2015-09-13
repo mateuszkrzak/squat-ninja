@@ -1,0 +1,53 @@
+{
+	"type": "UserCollection",
+	"properties": {
+		"tabs": {
+			"name": "tabs",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "tabs",
+			"order": 0
+		},
+		"role": {
+			"name": "role",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "role",
+			"order": 1
+		},
+		"firstname": {
+			"name": "firstname",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "firstname",
+			"order": 2
+		},
+		"email": {
+			"name": "email",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "email",
+			"order": 3
+		},
+		"lastname": {
+			"name": "lastname",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "lastname",
+			"order": 4
+		},
+		"degree": {
+			"name": "degree",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "degree",
+			"order": 5
+		}
+	}
+}
