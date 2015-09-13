@@ -43,7 +43,6 @@ angular.module('szuszApp-admin-profileController', ['ngResource','ui.bootstrap',
                 content: "Treść",
                 active: true
             });
-
             $scope.save();
         };
 
