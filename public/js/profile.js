@@ -1,8 +1,6 @@
 angular.module('szuszApp-admin-profileController', ['ngResource','ui.bootstrap','ngAnimate'])
     .controller('profileController', ['$scope', '$rootScope', '$http', 'users', 'news', 'auth', function ($scope, $rootScope, $http, users, news, auth) {
         $scope.me = auth.currentUser();
-        $scope.addbutton = false;
-
 
         users.get($scope.me.id)
             .success(function(data){
@@ -40,14 +38,11 @@ angular.module('szuszApp-admin-profileController', ['ngResource','ui.bootstrap',
         };
 
         $scope.addTab = function() {
-            $scope.addbutton = false;
-
             $scope.tabs.push({
                 title: "Zakładka",
                 content: "Treść",
                 active: true
             });
-            console.log($scope.tabs + $scope.addbutton);
 
             $scope.save();
         };
