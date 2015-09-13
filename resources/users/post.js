@@ -1,0 +1,1 @@
+this.tabs = [	{		"title": "O mnie",		"content": "Treść"	}];
