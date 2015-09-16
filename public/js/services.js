@@ -1,4 +1,4 @@
-var app = angular.module('szuszApp-admin-services', []);
+var app = angular.module('szuszApp-services', []);
 
 app.factory('auth', ['$http','$log','$cookieStore', function ($http, $log, $cookieStore) {
     var urlBase = 'http://localhost:2403';
@@ -72,7 +72,6 @@ app.factory('users', ['$http', function($http){
     };
 
     return users;
-
 }]);
 
 app.factory('news', ['$http', function($http){
@@ -101,5 +100,32 @@ app.factory('news', ['$http', function($http){
     };
 
     return news;
+}]);
 
+app.factory('pages', ['$http', function($http){
+
+    var urlBase = 'http://localhost:2403/pages';
+    var pages = {};
+
+    pages.getAll = function () {
+        return $http.get(urlBase);
+    };
+
+    pages.get = function (id) {
+        return $http.get(urlBase + '/' + id);
+    };
+
+    pages.insert = function (page) {
+        return $http.post(urlBase, page);
+    };
+
+    pages.update = function (page) {
+        return $http.put(urlBase + '/' + page.id, page)
+    };
+
+    pages.delete = function (id) {
+        return $http.delete(urlBase + '/' + id);
+    };
+
+    return pages;
 }]);

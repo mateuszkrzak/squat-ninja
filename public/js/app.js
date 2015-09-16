@@ -1,14 +1,15 @@
 (function(){
-    var app = angular.module('szuszApp-admin',
+    var app = angular.module('szuszApp',
         [   'ngRoute',
             'ngResource',
             'ngAnimate',
-            'szuszApp-admin-usersController',
-            'szuszApp-admin-newsController',
-            'szuszApp-admin-loginController',
-            'szuszApp-admin-profileController',
-            'szuszApp-admin-services',
-            'szuszApp-admin-directives',
+            'szuszApp-usersController',
+            'szuszApp-newsController',
+            'szuszApp-loginController',
+            'szuszApp-profileController',
+            'szuszApp-settingsController',
+            'szuszApp-services',
+            'szuszApp-directives',
             'textAngular',
             'ui.bootstrap'
         ]);
@@ -33,9 +34,15 @@
                 templateUrl: 'views/profile.html',
                 user: true
             })
+            .when('/settings', {
+                controller: 'settingsController',
+                templateUrl: 'views/settings.html',
+                user: false,
+                admin: true
+            })
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: 'views/login.html',
+                templateUrl: 'views/login.html'
             })
 
             .otherwise({
@@ -54,7 +61,7 @@
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
             var loginPath = '/login';
             if (next.user && !auth.isLogged()) {
-                $location.path(loginPath);
+                $location.path('/');
             } // jesli nie zalogowany przenies na strone logowania
 
             if (next.admin && !auth.isAdmin()) {

@@ -1,4 +1,4 @@
-angular.module('szuszApp-admin-usersController', ['ngResource','ui.bootstrap'])
+angular.module('szuszApp-usersController', ['ngResource','ui.bootstrap'])
 .controller('UsersController', ['$scope','$http', 'users', function ($scope, $http, users) {
     $scope.users = [];
     getUsers();
@@ -72,11 +72,16 @@ angular.module('szuszApp-admin-usersController', ['ngResource','ui.bootstrap'])
         newUser = {
             'username':$scope.username,
             'password':$scope.password,
-            'degree': $scope.degree,
             'firstname': $scope.firstname,
             'lastname': $scope.lastname,
-            'email': $scope.email,
-            'role':$scope.role
+            'role':$scope.role,
+            'profile': {
+                "title": "",
+                "degree": $scope.degree,
+                "email": $scope.email,
+                "site": "",
+                "avatar": "img/member.png"
+            }
         };
         $scope.insertUser();
     };
