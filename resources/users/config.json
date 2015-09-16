@@ -25,29 +25,21 @@
 			"id": "firstname",
 			"order": 2
 		},
-		"email": {
-			"name": "email",
-			"type": "string",
-			"typeLabel": "string",
-			"required": true,
-			"id": "email",
-			"order": 3
-		},
 		"lastname": {
 			"name": "lastname",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
 			"id": "lastname",
-			"order": 4
+			"order": 3
 		},
-		"degree": {
-			"name": "degree",
-			"type": "string",
-			"typeLabel": "string",
+		"profile": {
+			"name": "profile",
+			"type": "object",
+			"typeLabel": "object",
 			"required": false,
-			"id": "degree",
-			"order": 5
+			"id": "profile",
+			"order": 4
 		}
 	}
 }

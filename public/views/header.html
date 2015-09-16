@@ -16,8 +16,13 @@
 
                     <li ng-show="isLogged"> <a href="/#/news">Newsy</a></li>
                     <li ng-show="isLogged && isAdmin"><a href="/#/users">Użytkownicy </a></li>
-                    <li ng-show="isLogged"><a href="/#/profile">Moja strona</a></li>
+                    <li ng-show="isLogged && isAdmin"><a href="/#/settings">Ustawienia strony</a></li>
+                    <li ng-show="isLogged"><a href="/#/profile">Profil</a></li>
                     <li ng-show="isLogged"><a href ng-click="logout()">Wyloguj</a></li>
+
+                    <li ng-hide="isLogged"><a href="/#/pnews">Zaloguj</a></li>
+                    <li ng-hide="isLogged"><a href="/#/people">Zaloguj</a></li>
+                    <li ng-hide="isLogged"><a href="/#/about">Zaloguj</a></li>
                     <li ng-hide="isLogged"><a href="/#/login">Zaloguj</a></li>
 
                 </ul>

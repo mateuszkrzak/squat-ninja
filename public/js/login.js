@@ -1,9 +1,9 @@
-angular.module('szuszApp-admin-loginController', ['ngResource','ui.bootstrap','ngCookies','ngAnimate'])
+angular.module('szuszApp-loginController', ['ngResource','ui.bootstrap','ngCookies','ngAnimate'])
     .controller('LoginController', ['$scope', '$rootScope','$http', '$location', 'auth', function ($scope, $rootScope ,$http, $location, auth) {
 
         $scope.login = function () {
             if (!$scope.user || !$scope.user.username || !$scope.user.password) {
-                $scope.error = "Uzupelnij dane";
+                $scope.error = "Uzupełnij wszystkie pola formularza.";
                 return;
             }
             else{
@@ -16,7 +16,7 @@ angular.module('szuszApp-admin-loginController', ['ngResource','ui.bootstrap','n
             auth.login(user, function (result) {
                 $location.path("/");
             }, function (err) {
-                console.log(err);
+                if (err.status==401) $scope.error = "Podałeś błędne dane.";
             })
         }
 

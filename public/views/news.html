@@ -40,7 +40,6 @@
             <table class="table table-responsive table-hover">
                 <thead>
                 <tr>
-                    <th><a href="" ng-click="sort_field='id'; reverseSort = !reverseSort">ID</a></th>
                     <th><a href="" ng-click="sort_field='content'; reverseSort = !reverseSort">Treść</a></th>
                     <th><a href="" ng-click="sort_field='authorfull'; reverseSort = !reverseSort">Autor (ID)</a></th>
                     <th><a href="" ng-click="sort_field='date'; reverseSort = !reverseSort">Data</a></th>
@@ -49,8 +48,6 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="message in news | orderBy:sort_field:reverseSort | filter : paginate | filter : searchNews" class="message">
-                    <td class="id">
-                        {{message.id }}
                     <td>
                         {{message.content | limitTo: 50}}
                         {{message.content.length > 50 ? '...': ''}}

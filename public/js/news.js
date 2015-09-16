@@ -1,4 +1,4 @@
-angular.module('szuszApp-admin-newsController', ['ngResource','ui.bootstrap','ngAnimate'])
+angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimate'])
 .controller('NewsController', ['$scope','$http', '$modal', 'users', 'news', 'auth', function ($scope, $http, $modal, users, news,auth) {
     $scope.news = [];
     $scope.content ='Kliknij aby zacząć pisać swoją wiadomość...';
@@ -17,8 +17,8 @@ angular.module('szuszApp-admin-newsController', ['ngResource','ui.bootstrap','ng
                      );
                 });
             })
-            .error(function (error) {
-                console.log(error);
+            .error(function (data, error) {
+                console.log(data + "\n" + error);
             });
     }
 

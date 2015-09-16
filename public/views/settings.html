@@ -1,0 +1,40 @@
+<div class="col-xs-12 settings">
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-title">
+            <h4 class="panel-title">
+                 Ustawienia strony
+            </h4>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-responsive table-hover">
+                <thead>
+                <tr>
+                    <th><a href="" ng-click="sort_field='type'; reverseSort = !reverseSort">Treść</a></th>
+                    <th><a href="" ng-click="sort_field='content'; reverseSort = !reverseSort">Autor (ID)</a></th>
+                    <th>Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="page in pages | orderBy:sort_field:reverseSort" class="page">
+                    <td>
+                        {{page.type}}
+                    </td>
+                    <td>
+                        {{page.content | limitTo: 70}}
+                        {{page.content.length > 70 ? '...': ''}}
+                    </td>
+
+
+                    <td class="buttons">
+                        <button ng-click="editPage('lg',page)" class="btn btn-xs glyphicon glyphicon-pencil"/>
+                        <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="delete(page.id)"/>
+                    </td>
+                </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
