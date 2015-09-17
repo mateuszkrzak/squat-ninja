@@ -1,20 +1,18 @@
 angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAnimate'])
-    .controller('settingsController', ['$scope', '$http', 'users', 'pages', 'auth','$modal', function ($scope,  $http, users, pages, auth, $modal) {
+    .controller('settingsController', ['$scope', '$http','pages', '$modal', function ($scope, $http, pages, $modal) {
+        $scope.content = "Kliknij tutaj aby zacząć pisać"
+        $scope.type = "panel";
 
         pages.getAll()
             .success(function(data){
                 $scope.pages = data;
-
             })
             .error(function(){
                 $scope.pages = [];
             });
 
-
-
         $scope.editPage = function (size, page) {
             var modalInstance = $modal.open({
-                animation: $scope.animationsEnabled,
                 backdrop: true,
                 size: size,
                 templateUrl: 'views/page-edit-modal.html',
@@ -52,7 +50,7 @@ angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAn
         };
 
         $scope.deletePage = function (id) {
-            page.delete(id)
+            pages.delete(id)
                 .success(function () {
                     for (var i = 0; i < $scope.pages.length; i++) {
                         var page = $scope.pages[i];
@@ -63,7 +61,20 @@ angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAn
                     }
                 })
                 .error(function(data,status) {
-                    alert( "B��d " + status);
+                    alert( "Błąd " + status);
                 });
+        };
+
+
+
+
+        $scope.addElement = function(){
+            pages.insert({'type': $scope.type,'content': $scope.content})
+                .success(function (data) {
+                    $scope.pages.push(data);
+                })
+                .error(function(data,status) {
+                });
+
         };
     }]);
