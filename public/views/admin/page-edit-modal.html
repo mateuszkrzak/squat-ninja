@@ -3,6 +3,12 @@
         <h3 class="modal-title">Edycja  {{type + id}}</h3>
     </div>
     <div class="modal-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="page-title">Tytuł: </label>
+                <input type="text" id="page-title" ng-model="title" class="form-control">
+            </div>
+        </form>
         <text-angular ng-model="content"></text-angular>
     </div>
     <div class="clearfix">

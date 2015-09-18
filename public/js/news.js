@@ -1,6 +1,7 @@
 angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimate'])
 .controller('NewsController', ['$scope','$http', '$modal', 'users', 'news', 'auth', function ($scope, $http, $modal, users, news,auth) {
     $scope.news = [];
+    $scope.title = 'Tytuł';
     $scope.content ='Kliknij aby zacząć pisać swoją wiadomość...';
     getNews();
 
@@ -24,6 +25,7 @@ angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimat
 
     $scope.insertNews = function () {
         newNews = {
+            'title' : $scope.title,
             'content': $scope.content,
             'author': auth.currentUser().id
         };
@@ -76,16 +78,17 @@ angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimat
             animation: $scope.animationsEnabled,
             backdrop: true,
             size: size,
-            templateUrl: 'views/news-edit-modal.html',
+            templateUrl: 'views/admin/news-edit-modal.html',
             controller: function($scope, $modalInstance){
                 $scope.content = message.content;
+                $scope.title = message.title;
                 $scope.author = message.authorfull;
                 $scope.date = message.date;
                 $scope.id = message.id;
 
                 $scope.save = function () {
                     message.content = $scope.content;
-
+                    message.title = $scope.title;
                     $modalInstance.close(message);
                 };
 
@@ -105,6 +108,7 @@ angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimat
     $scope.addNews = function(){
         $scope.insertNews();
         $scope.content ='Kliknij aby zacząć pisać swoją wiadomość...';
+        $scope.title = 'Tytuł';
     };
 
     $scope.delete = function(id){
@@ -115,12 +119,11 @@ angular.module('szuszApp-newsController', ['ngResource','ui.bootstrap','ngAnimat
 
     $scope.sort_field = 'date';
     //paginacja
-    $scope.itemsPerPage = 15;
+    $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
 
     $scope.paginate = function(value) {
         $scope.totalItems = $scope.news.length;
-
         var begin, end, index;
         begin = ($scope.currentPage - 1) * $scope.itemsPerPage;
         end = begin + $scope.itemsPerPage;

@@ -1,0 +1,29 @@
+<!-- MEMBERLIST  -->
+<div class="col-xs-12">
+    <div class="memberslist">
+        <div class="list-group">
+            <div class="list-group-item title">
+                <div class="row">
+                    <section class="main col col-xs-12">
+                        Pracownicy zakładu
+                    </section><!--dane osobowe-->
+                </div>
+            </div>
+            <div ng-repeat="user in users">
+                <a ng-href="/#/people/{{user.id}}" class="list-group-item">
+                    <div class="row">
+                        <section class="aside col col-xs-1">
+                            <div class="media center-block">
+                                <img ng-src="{{user.profile.avatar}}" class="img-circle img-responsive  ">
+                            </div>
+                        </section><!--zdjecie-->
+
+                        <section class="main col col-xs-11">
+                            <h1>{{user.profile.degree + " " + user.firstname + " " + user.lastname}}</h1>
+                        </section><!--dane osobowe-->
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

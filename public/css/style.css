@@ -35,6 +35,10 @@ body {
     line-height:26px;
 }
 
+.news form, .news-edit form{
+    margin-bottom: 10px;
+}
+
 .news .buttons{
     white-space: nowrap;
 }
@@ -108,8 +112,12 @@ body {
     .memberslist .main {
         padding-left: 10px;
     }
+    .memberslist .img-responsive {
+        max-height: 20px;
+        max-width: 20px;
+    }
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) and (min-width: 521px) {
     .memberslist .main h1 {
         margin-left: 10px;
         margin-top: 5px;
@@ -119,7 +127,6 @@ body {
         margin-bottom: 15px;
     }
     .memberslist .img-responsive {
-        margin: 0 auto;
         max-height: 30px;
         max-width: 30px;
     }
@@ -183,6 +190,7 @@ body {
     font-size: 1em;
 }
 
+
 .workertabs .btn, .workerprofile .btn{
     margin-left: 10px;
     margin-top: 10px;
@@ -222,9 +230,11 @@ body {
     max-height: 100px;
 }
 .worker .nav-tabs {
+
     border-bottom: 0;
 }
 .worker .tab-pane {
+
     border: 1px solid #dddddd;
     border-radius: 0 0 4px 4px;
     padding: 15px;
@@ -258,7 +268,6 @@ body {
     margin-top: 15px;
 }
 .nav-tabs > li > a {
-    margin-top: 15px;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgb(236, 236, 236);
     border-bottom: 0;
@@ -297,9 +306,6 @@ body {
 }
 .memberslist .img-responsive {
     margin: 0 auto;
-    min-height: 20px;
-    min-width: 20px;
-    max-height: 40px;
     max-width: 40px;
 }
 .memberslist h1 {
@@ -312,7 +318,7 @@ body {
 .memberslist .title {
     font-size: 20px;
     text-align: center;
-    background-color: #65aee1;
+    background-color: #e1e1e1;
     margin-top: 0;
 }
 .article-content {
@@ -340,7 +346,7 @@ body {
     margin-top: 0;
 }
 .news-aside .panel-body {
-    padding: 10px 0;
+    padding: 5px 10px;
 }
 .articles .pagination {
     margin-bottom: 5px;
@@ -352,4 +358,12 @@ body {
 
 .settings .add{
     margin-top: 10px;
+}
+
+.about img{
+    max-width: 100%;
+}
+
+.settings .form-horizontal .form-group {
+    margin: 0 0 15px 0;
 }

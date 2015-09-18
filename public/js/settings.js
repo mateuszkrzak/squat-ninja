@@ -1,6 +1,7 @@
 angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAnimate'])
-    .controller('settingsController', ['$scope', '$http','pages', '$modal', function ($scope, $http, pages, $modal) {
+    .controller('SettingsController', ['$scope', '$http','pages', '$modal', function ($scope, $http, pages, $modal) {
         $scope.content = "Kliknij tutaj aby zacząć pisać"
+        $scope.title = "Tytuł";
         $scope.type = "panel";
 
         pages.getAll()
@@ -15,12 +16,14 @@ angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAn
             var modalInstance = $modal.open({
                 backdrop: true,
                 size: size,
-                templateUrl: 'views/page-edit-modal.html',
+                templateUrl: 'views/admin/page-edit-modal.html',
                 controller: function($scope, $modalInstance){
                     $scope.content = page.content;
+                    $scope.title = page.title;
 
                     $scope.save = function () {
                         page.content = $scope.content;
+                        page.title = $scope.title;
                         $modalInstance.close(page);
                     };
 
@@ -69,7 +72,7 @@ angular.module('szuszApp-settingsController', ['ngResource','ui.bootstrap','ngAn
 
 
         $scope.addElement = function(){
-            pages.insert({'type': $scope.type,'content': $scope.content})
+            pages.insert({'type': $scope.type,'content': $scope.content, 'title': $scope.title})
                 .success(function (data) {
                     $scope.pages.push(data);
                 })

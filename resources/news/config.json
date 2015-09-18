@@ -9,13 +9,21 @@
 			"id": "content",
 			"order": 0
 		},
+		"title": {
+			"name": "title",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "title",
+			"order": 1
+		},
 		"author": {
 			"name": "author",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
 			"id": "author",
-			"order": 1
+			"order": 2
 		},
 		"date": {
 			"name": "date",
@@ -23,7 +31,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "date",
-			"order": 2
+			"order": 3
 		}
 	}
 }

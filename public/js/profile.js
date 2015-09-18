@@ -1,5 +1,5 @@
 angular.module('szuszApp-profileController', ['ngResource','ui.bootstrap'])
-    .controller('profileController', ['$scope', 'users', 'news', 'auth','$timeout', function ($scope, users, news, auth, $timeout) {
+    .controller('ProfileController', ['$scope', 'users', 'news', 'auth','$timeout', function ($scope, users, news, auth, $timeout) {
         $scope.me = auth.currentUser();
         $scope.alert ={};
         $scope.originalprofile = {};

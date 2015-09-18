@@ -1,4 +1,4 @@
-<div class="col-xs-12 ">
+<div class="col-xs-12 news">
     <div class="panel panel-primary">
         <div class="panel-heading hover-link" data-toggle="collapse" data-parent="false" data-target="#collapsePanel">
             <h4 class="panel-title">
@@ -7,6 +7,13 @@
         </div>
         <div id="collapsePanel" class="panel-collapse collapse out">
             <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="news-title">Tytuł</label>
+                        <input type="text" id="news-title" ng-model="title" class="form-control">
+                    </div>
+                </form>
+
                 <text-angular ng-model="content"></text-angular>
 
                 <div class="addnews">
@@ -40,6 +47,7 @@
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                 <tr>
+                    <th><a href="" ng-click="sort_field='title'; reverseSort = !reverseSort">Tytuł</a></th>
                     <th><a href="" ng-click="sort_field='content'; reverseSort = !reverseSort">Treść</a></th>
                     <th><a href="" ng-click="sort_field='authorfull'; reverseSort = !reverseSort">Autor</a></th>
                     <th><a href="" ng-click="sort_field='date'; reverseSort = !reverseSort">Data</a></th>
@@ -48,6 +56,9 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="message in news | orderBy:sort_field:reverseSort | filter : paginate | filter : searchNews" class="message">
+                    <td>
+                        {{message.title}}
+                    </td>
                     <td>
                         {{message.content | limitTo: 50}}
                         {{message.content.length > 50 ? '...': ''}}

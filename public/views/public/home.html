@@ -1,0 +1,36 @@
+<!-- NEWS  -->
+<div class="col-xs-12 col-md-9">
+    <div class="row">
+        <div class="news main col-xs-12">
+            <div class="articles">
+                <div class="well">
+                    <div class="article-content" ng-repeat="article in news | filter:paginate">
+                        <h2>{{article.title}}</h2>
+                        <p class="text-justify" ta-bind ng-model="article.content"></p>
+                        <span class="date"><a href="/#/member-info">{{article.authorfull}}</a>, {{article.date | date: 'H:mm dd/MM/yyyy'}}</span>
+                    </div>
+
+                    <div class="text-center">
+                        <pagination boundary-links="true" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" class="pagination-sm" ng-change="pageChanged()"                                previous-text="&lsaquo;"                                next-text="&rsaquo;"                                first-text="Pierwszy"                                last-text="Ostatni">
+                        </pagination>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PANELS  -->
+<div class="col-xs-12 col-md-3" ng-repeat="panel in panels">
+    <div class="news-aside">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{panel.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <div ta-bind ng-model="panel.content"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,17 +2,16 @@ var app = angular.module('szuszApp-directives',[]);
 
 app.directive('szuszHeader', function (auth, $location) {
     return {
-        templateUrl: 'views/header.html',
+        templateUrl: 'views/shared/header.html',
         restrict: 'E',
         link: function (scope,elem, attrs) {
 
             scope.logout = function () {
                 auth.logout(function () {
                     $location.path("/login");
-                  }, function (err)
-                {
+                  }, function (err) {
                     console.log(err);
-                });
+                     });
             }
 
 
@@ -28,7 +27,7 @@ app.directive('szuszHeader', function (auth, $location) {
 
 app.directive('szuszFooter', function () {
     return {
-        templateUrl: 'views/footer.html',
+        templateUrl: 'views/shared/footer.html',
         restrict: 'E',
         link: function (scope,elem, attrs) {
 

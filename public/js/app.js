@@ -8,7 +8,11 @@
             'szuszApp-loginController',
             'szuszApp-profileController',
             'szuszApp-settingsController',
+            'szuszApp-homeController',
+            'szuszApp-aboutController',
+            'szuszApp-peopleController',
             'szuszApp-services',
+            'szuszApp-filters',
             'szuszApp-directives',
             'textAngular',
             'ui.bootstrap'
@@ -20,33 +24,48 @@
         $routeProvider
             .when('/news', {
                 controller: 'NewsController',
-                templateUrl: 'views/news.html',
+                templateUrl: 'views/admin/news.html',
                 user: true
             })
             .when('/users', {
                 controller: 'UsersController',
-                templateUrl: 'views/users.html',
+                templateUrl: 'views/admin/users.html',
                 user: false,
                 admin: true
             })
             .when('/profile', {
-                controller: 'profileController',
-                templateUrl: 'views/profile.html',
+                controller: 'ProfileController',
+                templateUrl: 'views/admin/profile.html',
                 user: true
             })
             .when('/settings', {
-                controller: 'settingsController',
-                templateUrl: 'views/settings.html',
+                controller: 'SettingsController',
+                templateUrl: 'views/admin/settings.html',
                 user: false,
                 admin: true
             })
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: 'views/login.html'
+                templateUrl: 'views/shared/login.html'
             })
-
+            .when('/home', {
+                controller: 'HomeController',
+                templateUrl: 'views/public/home.html'
+            })
+            .when('/people', {
+                controller: 'PeopleController',
+                templateUrl: 'views/public/people.html'
+            })
+            .when('/people/:personId', {
+                controller: 'PeopleController',
+                templateUrl: 'views/public/people-detail.html'
+            })
+            .when('/about', {
+                controller: 'AboutController',
+                templateUrl: 'views/public/about.html'
+            })
             .otherwise({
-                redirectTo: '/news'
+                redirectTo: '/home'
             })
         ;
 
