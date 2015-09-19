@@ -7,7 +7,8 @@ app.factory('auth', ['$http','$log','$cookieStore', function ($http, $log, $cook
     var login = function (user, success, error) {
         $http.post(urlBase + '/users/login', user).success(function (result) {
             $http.get(urlBase + '/users/me').success(function (data) {
-                $cookieStore.put('user', data);
+                storedUser = {username:data.user, role:data.role};
+                $cookieStore.put('user', storedUser);
                 currentUser = data;
                 success(data);
             });
