@@ -23,6 +23,7 @@
                             <th><a href="" ng-click="sort_field='lastname'; reverseSort = !reverseSort">Nazwisko</a></th>
                             <th><a href="" ng-click="sort_field='email'; reverseSort = !reverseSort">e-mail</a></th>
                             <th><a href="" ng-click="sort_field='role'; reverseSort = !reverseSort">Rola</a></th>
+                            <th>Aktywny</th>
                             <th>Akcja</th>
 
                         </tr>
@@ -32,6 +33,7 @@
                             <td class="username">
                                 <div ng-hide="editingData[user.id]">{{  user.username }}</div>
                                 <div ng-show="editingData[user.id]"><input type="text" ng-model="user.username" /></div>
+                            </td>
                             <td>
                                 <div ng-hide="editingData[user.id]">{{  user.profile.degree }}</div>
                                 <div ng-show="editingData[user.id]"><input type="text" ng-model="user.profile.degree" /></div>
@@ -57,7 +59,9 @@
                                     </select>
                                 </div>
                             </td>
-
+                            <td>
+                                    <input type="checkbox" ng-model="user.activated" ng-disabled="!editingData[user.id]">
+                            </td>
                             <td class="buttons">
                                 <button ng-hide="editingData[user.id]" ng-click="modify(user)" class="btn btn-xs glyphicon glyphicon-pencil"/>
                                 <button ng-show="editingData[user.id]" ng-click="update(user)" class="btn btn-xs glyphicon glyphicon-ok"/>
@@ -88,6 +92,12 @@
                                         <option value="user">user</option>
                                     </select>
                                 </div>
+                            </td>
+                            <td>
+                                <div ng-show="showinputs">
+                                    <input type="checkbox" ng-model="activated">
+                                </div>
+
                             </td>
                             <td>
                                 <button ng-show="showinputs" type="button" class="btn btn-xs glyphicon glyphicon-ok" ng-click="addRow(); showinputs=false"/>

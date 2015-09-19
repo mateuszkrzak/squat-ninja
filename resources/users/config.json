@@ -9,13 +9,21 @@
 			"id": "tabs",
 			"order": 0
 		},
+		"activated": {
+			"name": "activated",
+			"type": "boolean",
+			"typeLabel": "boolean",
+			"required": false,
+			"id": "activated",
+			"order": 1
+		},
 		"role": {
 			"name": "role",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
 			"id": "role",
-			"order": 1
+			"order": 2
 		},
 		"firstname": {
 			"name": "firstname",
@@ -23,7 +31,7 @@
 			"typeLabel": "string",
 			"required": true,
 			"id": "firstname",
-			"order": 2
+			"order": 3
 		},
 		"lastname": {
 			"name": "lastname",
@@ -31,7 +39,7 @@
 			"typeLabel": "string",
 			"required": true,
 			"id": "lastname",
-			"order": 3
+			"order": 4
 		},
 		"profile": {
 			"name": "profile",
@@ -39,7 +47,7 @@
 			"typeLabel": "object",
 			"required": false,
 			"id": "profile",
-			"order": 4
+			"order": 5
 		}
 	}
 }

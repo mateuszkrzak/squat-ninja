@@ -9,7 +9,8 @@
                     </section><!--dane osobowe-->
                 </div>
             </div>
-            <div ng-repeat="user in users">
+
+            <div ng-repeat="user in users" ng-if="user.activated==true">
                 <a ng-href="/#/people/{{user.id}}" class="list-group-item">
                     <div class="row">
                         <section class="aside col col-xs-1">

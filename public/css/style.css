@@ -180,6 +180,27 @@ body {
     -webkit-transition-duration: 0s ;
 }
 
+
+.article{
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5.25s;
+}
+
+.article.ng-enter.ng-enter-active,
+.article.ng-leave {
+    opacity: 1;
+}
+
+.article.ng-leave.ng-leave-active,
+.article.ng-enter {
+    opacity: 0;
+}
+
+.article.ng-enter-stagger {
+    transition-delay: 0.05s ;
+    -webkit-transition-delay: 0.05s ;
+    transition-duration: 0s ;
+    -webkit-transition-duration: 0s ;
+}
 /*********/
 @media (min-width: 768px){
     .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
@@ -211,7 +232,6 @@ body {
     padding: 0 0;
 }
 .worker a {
-    color: #333333;
     text-decoration: none;
 }
 .worker .main h1 {

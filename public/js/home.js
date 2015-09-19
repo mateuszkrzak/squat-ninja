@@ -1,4 +1,4 @@
-angular.module('szuszApp-homeController', ['ui.bootstrap'])
+angular.module('szuszApp-homeController', ['ngAnimate', 'ui.bootstrap'])
     .controller('HomeController', ['$scope', 'news', 'pages', 'users', '$filter', function ($scope, news, pages, users, $filter) {
         $scope.panels = [];
         $scope.news = [];

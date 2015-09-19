@@ -16,15 +16,17 @@ angular.module('szuszApp-usersController', ['ngResource','ui.bootstrap'])
 
     $scope.insertUser = function () {
         users.insert(newUser)
-            .success(function () {
+            .success(function (data) {
+                newUser.id = data.id;
                 $scope.users.push(newUser);
+
                 $scope.id='';
                 $scope.username='';
-                $scope.degree='';
                 $scope.firstname='';
                 $scope.lastname='';
                 $scope.email='';
                 $scope.role='';
+                $scope.activated=false;
             })
             .error(function(data,status) {
                 errorMsg = "";
@@ -75,6 +77,7 @@ angular.module('szuszApp-usersController', ['ngResource','ui.bootstrap'])
             'firstname': $scope.firstname,
             'lastname': $scope.lastname,
             'role':$scope.role,
+            'activated' : $scope.activated,
             'profile': {
                 "title": "",
                 "degree": $scope.degree,

@@ -6,6 +6,7 @@
             'szuszApp-usersController',
             'szuszApp-newsController',
             'szuszApp-loginController',
+            'szuszApp-registerController',
             'szuszApp-profileController',
             'szuszApp-settingsController',
             'szuszApp-homeController',
@@ -46,7 +47,11 @@
             })
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: 'views/shared/login.html'
+                templateUrl: 'views/public/login.html'
+            })
+            .when('/register', {
+                controller: 'RegisterController',
+                templateUrl: 'views/public/register.html'
             })
             .when('/home', {
                 controller: 'HomeController',

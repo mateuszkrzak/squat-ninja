@@ -9,12 +9,13 @@
                 </section><!--zdjecie-->
 
                 <section class="main col col-xs-10 col-sm-7 col-md-8">
-                    <h1>dr hab. Jan Łydka</h1>
+                    <h1>{{person.profile.degree + " " + person.firstname + " " + person.lastname}}</h1>
                     <h2>Dyrektor zakładu</h2>
                 </section><!--dane osobowe-->
 
                 <section class="aside col col-xs-12 col-sm-3 col-md-2">
-                    <a href="mailto:janlydka@gmail.com">
+                    <a ng-href="mailto:{{person.profile.email}}">
+
                         <button type="button" class="btn btn-default btn-block">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             e-mail
@@ -22,7 +23,7 @@
                     </a>
 
                     <br>
-                    <a href="http://pakerzy.org">
+                    <a ng-href="//{{person.profile.site}}">
                         <button type="button" class="btn btn-default btn-block">
                             <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                             www
