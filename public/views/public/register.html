@@ -1,0 +1,60 @@
+<div class="col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Ustawienia profilu</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div ng-hide="registered">
+                        <form name="profileForm" novalidate>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="username">Nazwa użytkownika</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="username" ng-model="username" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="firstname">Imię</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="firstname" ng-model="firstname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="lastname">Nazwisko</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="lastname" ng-model="lastname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="email">E-mail</label>
+                                <div class="col-sm-9">
+                                    <input type="email" id="email" ng-model="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="password">Hasło</label>
+                                <div class="col-sm-9">
+                                    <input type="password" id="password" ng-model="password" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class=" clearfix ">
+                            <button class="btn btn-lg btn-primary center-block" ng-click="register()">Zarejestruj się</button>
+                        </div>
+
+                        <div class="alert alert-warning alert-error" ng-show="error" >{{error}}</div>
+                    </div>
+                    <div ng-show="registered">
+                        <div class="alert alert-success">{{registersuccess}}</div>
+                        <a href="/#/login"><button class="btn  btn-primary center-block">Logowanie</button></a>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
