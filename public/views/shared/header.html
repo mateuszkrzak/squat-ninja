@@ -8,13 +8,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a ng-hide="isLogged" class="navbar-brand" href="/#/">Panel administracyjny</a>
+                <a ng-hide="isLogged" class="navbar-brand" href="/#/" ta-bind ng-model="sitename"></a>
                 <a ng-show="isLogged" class="navbar-brand" href="/#/admin">{{'Witaj, '+ user.username}}</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li ng-show="isLogged"> <a href="/#/news">Newsy</a></li>
+                    <li ng-show="isLogged && (isModerator || isAdmin)"> <a href="/#/news">Newsy</a></li>
                     <li ng-show="isLogged && isAdmin"><a href="/#/users">Użytkownicy </a></li>
                     <li ng-show="isLogged && isAdmin"><a href="/#/settings">Ustawienia strony</a></li>
                     <li ng-show="isLogged"><a href="/#/profile">Profil</a></li>

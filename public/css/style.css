@@ -23,9 +23,11 @@ body {
     width: 100%;
 }
 
-.users .buttons{
+.action-buttons{
     white-space: nowrap;
 }
+
+
 .users tr .id{
     width: 65px;
 }
@@ -39,14 +41,15 @@ body {
     margin-bottom: 10px;
 }
 
-.news .buttons{
-    white-space: nowrap;
-}
 
-.addnews {
+
+.addnews-btn {
     padding-top: 5px;
 }
 
+.add-bar {
+    cursor: pointer;
+}
 .news-edit .news-info {
     padding: 10px 0;
 }
@@ -387,3 +390,4 @@ body {
 .settings .form-horizontal .form-group {
     margin: 0 0 15px 0;
 }
+

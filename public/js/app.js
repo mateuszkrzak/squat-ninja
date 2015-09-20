@@ -19,7 +19,7 @@
             'ui.bootstrap'
         ]);
 
-    app.config(['$routeProvider', '$locationProvider','$httpProvider', function($routeProvider, $locationProvider,$httpProvider) {
+    app.config(['$routeProvider', '$locationProvider','$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
         $httpProvider.defaults.withCredentials = true;
 
         $routeProvider
@@ -74,10 +74,8 @@
             })
         ;
 
-        $locationProvider.html5Mode({
-        //    enabled: true,
-            requireBase: false
-        });
+        //$locationProvider.html5Mode(true);
+
 
     }]);
 

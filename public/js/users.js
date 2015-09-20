@@ -13,31 +13,6 @@ angular.module('szuszApp-usersController', ['ngResource','ui.bootstrap'])
             });
     }
 
-
-    $scope.insertUser = function () {
-        users.insert(newUser)
-            .success(function (data) {
-                newUser.id = data.id;
-                $scope.users.push(newUser);
-
-                $scope.id='';
-                $scope.username='';
-                $scope.firstname='';
-                $scope.lastname='';
-                $scope.email='';
-                $scope.role='';
-                $scope.activated=false;
-            })
-            .error(function(data,status) {
-                errorMsg = "";
-                angular.forEach(data.errors, function(value, key) {
-                    errorMsg += key + " " + value +"\n";
-                });
-
-                alert( "Błąd " + status + ":\n" + errorMsg);
-            });
-    };
-
     $scope.updateUser = function (id) {
         users.update(id)
             .success(function () {
@@ -65,29 +40,6 @@ angular.module('szuszApp-usersController', ['ngResource','ui.bootstrap'])
 
 
 
-    $scope.showAddRow = function(){
-        $scope.role='user';
-    };
-
-    $scope.addRow = function(){
-        $scope.password = prompt("Podaj hasło dla nowego użytkownika:");
-        newUser = {
-            'username':$scope.username,
-            'password':$scope.password,
-            'firstname': $scope.firstname,
-            'lastname': $scope.lastname,
-            'role':$scope.role,
-            'activated' : $scope.activated,
-            'profile': {
-                "title": "",
-                "degree": $scope.degree,
-                "email": $scope.email,
-                "site": "",
-                "avatar": "img/member.png"
-            }
-        };
-        $scope.insertUser();
-    };
 
     $scope.delete = function(id){
         $scope.deleteUser(id);

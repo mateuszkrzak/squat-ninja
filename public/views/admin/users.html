@@ -55,6 +55,7 @@
                                 <div ng-show="editingData[user.id]">
                                     <select ng-model="user.role">
                                         <option value="admin">admin</option>
+                                        <option value="moderator">moderator</option>
                                         <option value="user">user</option>
                                     </select>
                                 </div>
@@ -62,49 +63,13 @@
                             <td>
                                     <input type="checkbox" ng-model="user.activated" ng-disabled="!editingData[user.id]">
                             </td>
-                            <td class="buttons">
+                            <td class="action-buttons">
                                 <button ng-hide="editingData[user.id]" ng-click="modify(user)" class="btn btn-xs glyphicon glyphicon-pencil"/>
                                 <button ng-show="editingData[user.id]" ng-click="update(user)" class="btn btn-xs glyphicon glyphicon-ok"/>
                                 <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="delete(user.id)"/>
                             </td>
                         </tr>
 
-                        <tr>
-                            <td>
-                                <div ng-show="showinputs"><input type="text" ng-model="username" /></div>
-                            </td>
-                            <td>
-                                <div ng-show="showinputs"><input type="text" ng-model="degree" /></div>
-                            </td>
-                            <td>
-                                <div class="name" ng-show="showinputs"><input type="text" ng-model="firstname" /></div>
-                            </td>
-                            <td>
-                                <div class="name" ng-show="showinputs"><input type="text" ng-model="lastname" /></div>
-                            </td>
-                            <td>
-                                <div ng-show="showinputs"><input type="text" ng-model="email" /></div>
-                            </td>
-                            <td>
-                                <div ng-show="showinputs">
-                                    <select ng-model="role">
-                                        <option value="admin">admin</option>
-                                        <option value="user">user</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div ng-show="showinputs">
-                                    <input type="checkbox" ng-model="activated">
-                                </div>
-
-                            </td>
-                            <td>
-                                <button ng-show="showinputs" type="button" class="btn btn-xs glyphicon glyphicon-ok" ng-click="addRow(); showinputs=false"/>
-                                <button ng-hide="showinputs" type="button" class="btn btn-xs glyphicon glyphicon-plus" ng-click="showAddRow(); showinputs=true"/>
-
-                            </td>
-                        </tr>
 
 
                         </tbody>

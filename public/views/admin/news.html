@@ -1,6 +1,6 @@
 <div class="col-xs-12 news">
     <div class="panel panel-primary">
-        <div class="panel-heading hover-link" data-toggle="collapse" data-parent="false" data-target="#collapsePanel">
+        <div class="panel-heading hover-link add-bar" data-toggle="collapse" data-parent="false" data-target="#collapsePanel">
             <h4 class="panel-title">
                <div class="glyphicon glyphicon-plus"></div> Napisz newsa
             </h4>
@@ -16,7 +16,7 @@
 
                 <text-angular ng-model="content"></text-angular>
 
-                <div class="addnews">
+                <div class="addnews-btn">
                     <button class="btn btn-primary pull-right" ng-click="addNews()">Opublikuj</button>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         {{message.date | date: 'H:mm dd/MM/yyyy'}}
                     </td>
 
-                    <td class="buttons">
+                    <td class="action-buttons">
                         <button ng-click="editNews('lg',message)" class="btn btn-xs glyphicon glyphicon-pencil"/>
                         <button type="button" class="btn btn-xs glyphicon glyphicon-trash" ng-click="delete(message.id)"/>
                     </td>

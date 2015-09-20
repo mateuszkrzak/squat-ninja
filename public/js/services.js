@@ -1,18 +1,22 @@
 var app = angular.module('szuszApp-services', []);
+var restEnd = 'http://s6.mydevil.net:30000';
 
 app.factory('auth', ['$http','$log','$cookieStore', function ($http, $log, $cookieStore) {
-    var urlBase = 'http://localhost:2403';
+    var urlBase = restEnd;
 
     var currentUser = $cookieStore.get('user');
     var login = function (user, success, error) {
         $http.post(urlBase + '/users/login', user).success(function (result) {
             $http.get(urlBase + '/users/me').success(function (data) {
-                storedUser = {username:data.user, role:data.role};
-                $cookieStore.put('user', storedUser);
+                storedUser = {username:data.username, role:data.role, id:data.id};
+                var now = new Date(),
+                expireDate = new Date(now + 600000); //10min in miliseconds
+
+                $cookieStore.put('user', storedUser,{'expires':expireDate});
                 currentUser = data;
                 success(data);
             });
-        }).error(error);
+        });
     };
 
     var logout = function (success, error) {
@@ -32,9 +36,15 @@ app.factory('auth', ['$http','$log','$cookieStore', function ($http, $log, $cook
         isLogged: function () {
             return !jQuery.isEmptyObject(currentUser);
         },
-        logout: logout,
         currentUser: function () {
             return currentUser;
+        },
+        isModerator: function () {
+            if (jQuery.isEmptyObject(currentUser)) {
+                return false;
+            }
+            if(currentUser.role == 'moderator') return true;
+            else return false;
         },
         isAdmin: function () {
             if (jQuery.isEmptyObject(currentUser)) {
@@ -49,7 +59,7 @@ app.factory('auth', ['$http','$log','$cookieStore', function ($http, $log, $cook
 
 app.factory('users', ['$http', function($http){
 
-    var urlBase = 'http://localhost:2403/users';
+    var urlBase = restEnd + '/users';
     var users = {};
 
     users.getAll = function () {
@@ -77,7 +87,7 @@ app.factory('users', ['$http', function($http){
 
 app.factory('news', ['$http', function($http){
 
-    var urlBase = 'http://localhost:2403/news';
+    var urlBase = restEnd + '/news';
     var news = {};
 
     news.getAll = function () {
@@ -105,7 +115,7 @@ app.factory('news', ['$http', function($http){
 
 app.factory('pages', ['$http', function($http){
 
-    var urlBase = 'http://localhost:2403/pages';
+    var urlBase = restEnd + '/pages';
     var pages = {};
 
     pages.getAll = function () {
@@ -126,6 +136,20 @@ app.factory('pages', ['$http', function($http){
 
     pages.delete = function (id) {
         return $http.delete(urlBase + '/' + id);
+    };
+
+    pages.getSitename = function(){
+        var sitename = '';
+        pages.getAll()
+            .success(function (pages) {
+                angular.forEach(pages,function(value){
+                    if(value.type=='header'){
+                        sitename = value.content;
+
+                    }
+                });
+            });
+
     };
 
     return pages;
