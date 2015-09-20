@@ -134,6 +134,23 @@ body {
         max-width: 30px;
     }
 }
+/*****animations*/
+
+.glyphicon-spinning {
+    -animation: spin .6s infinite linear;
+    -webkit-animation: spin2 .6s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
 
 .page {
     transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -390,4 +407,5 @@ body {
 .settings .form-horizontal .form-group {
     margin: 0 0 15px 0;
 }
+
 
