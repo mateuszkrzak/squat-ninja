@@ -29,6 +29,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <szusz-loader loading></szusz-loader>
                         <tr ng-repeat="user in users | orderBy:sort_field:reverseSort | filter : searchUser | filter : paginate">
                             <td class="username">
                                 <div ng-hide="editingData[user.id]">{{  user.username }}</div>

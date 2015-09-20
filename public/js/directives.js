@@ -34,12 +34,34 @@ app.directive('szuszHeader', ['auth','$location','pages', function (auth, $locat
     };
 }]);
 
+app.directive('loading', ['$http', function ($http) {
+    return {
+        restrict: 'A',
+        link: function (scope, element) {
+            scope.isLoading = function () {
+                return $http.pendingRequests.length > 0;
+            };
+            scope.$watch(scope.isLoading, function (value) {
+                if (value) {
+                    element.removeClass('ng-hide');
+                } else {
+                    element.addClass('ng-hide');
+                }
+            });
+        }
+    };
+}]);
+
+app.directive('szuszLoader', function () {
+    return {
+        templateUrl: 'views/shared/loader.html',
+        restrict: 'E'
+    };
+});
+
 app.directive('szuszFooter', function () {
     return {
         templateUrl: 'views/shared/footer.html',
-        restrict: 'E',
-        link: function (scope,elem, attrs) {
-
-        }
+        restrict: 'E'
     };
 });

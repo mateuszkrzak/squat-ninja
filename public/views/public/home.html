@@ -4,12 +4,14 @@
         <div class="news main col-xs-12">
             <div class="articles">
                 <div class="well">
+                    <szusz-loader loading></szusz-loader>
+
                     <div class="article-content" ng-repeat="article in news | filter:paginate">
                         <h2>{{article.title}}</h2>
                         <p class="text-justify" ta-bind ng-model="article.content"></p>
                         <span class="date">
-                            <a ng-href="/#/people/{{article.author}}">{{article.authorfull}}</a>
-                            , {{article.date | date: 'H:mm dd/MM/yyyy'}}
+                            <a ng-href="/#/people/{{article.author}}">{{article.authorfull+','}}</a>
+                            {{article.date | date: 'H:mm dd/MM/yyyy'}}
                         </span>
                     </div>
 

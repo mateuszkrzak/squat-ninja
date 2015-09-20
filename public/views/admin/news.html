@@ -26,8 +26,6 @@
 </div>
 
 
-
-
 <div class="col-xs-12 news">
     <div class="panel panel-primary">
         <div class="panel-heading panel-title">
@@ -55,6 +53,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                <szusz-loader loading></szusz-loader>
                 <tr ng-repeat="message in news | orderBy:sort_field:reverseSort | filter : paginate | filter : searchNews" class="message">
                     <td>
                         {{message.title}}
